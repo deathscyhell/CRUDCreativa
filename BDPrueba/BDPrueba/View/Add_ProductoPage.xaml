@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:BDPrueba.ViewModel"
+             x:Class="BDPrueba.View.Add_ProductoPage">
+    <ContentPage.BindingContext>
+        <vm:ProductoViewModel/>
+    </ContentPage.BindingContext>
+        <Grid Margin="10,10,10,10"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            
+                <Label Text="Nombre "  FontSize="Medium"
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       Grid.Row="0" Grid.Column="0"/>
+                <Entry Placeholder="Digite su nombre" Text="{Binding Nombre} "
+                       Grid.Row="0" Grid.Column="1"/>
+                <Label Text="Precio" FontSize="Medium"
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       Grid.Row="1" Grid.Column="0"/>
+                <Entry Placeholder="Digite su Precio" Keyboard="Numeric" 
+                       Text="{Binding Precio} "
+                       Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Fecha" FontSize="Medium"
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       Grid.Row="2" Grid.Column="0"/>
+                <DatePicker Date="{Binding Fecha}" 
+                            Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Hora"  FontSize="Medium"
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       Grid.Row="3" Grid.Column="0"/>
+                <TimePicker     Grid.Row="3" Grid.Column="1"
+                            Time="{Binding Hora}"/>
+
+                <Button Text="Cancelar" Command="{Binding CancelarCommand}"
+                        BackgroundColor="{StaticResource BotonBackground}" TextColor="White"
+                        Grid.Row="4" Grid.Column="0"/>
+                <Button Text="Agregar" Command="{Binding GuardarCommand}"
+                         BackgroundColor="{StaticResource BotonBackground}" TextColor="White"
+                        Grid.Row="4" Grid.Column="1"/>
+            
+
+        </Grid>
+    
+</ContentPage>
